@@ -1,0 +1,10 @@
+.info-block {
+    width: 100%;
+    padding: 12px;
+    background-color: #FE6F61;
+    text-align: center;
+    font-size: 14px;
+}
+.info-block a {
+    color: #ffffff;
+}

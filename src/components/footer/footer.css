@@ -1,0 +1,33 @@
+.footer-wrapper {
+    margin-top: 50px;
+    display: flex;
+}
+.footer-wrapper .footer-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 0 auto;
+}
+.footer-block-title {
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: #000000;
+    margin-bottom: 20px;
+}
+.footer-block a {
+    font-size: 13px;
+    line-height: 29px;
+    text-decoration: none;
+}
+.payment {
+    margin-top: 20px;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 800;
+}
+.payment div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}

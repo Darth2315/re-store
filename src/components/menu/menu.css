@@ -1,0 +1,22 @@
+.menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 700;
+    height: 50px;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+.menu-item {
+    padding: 16px 27px;
+    transition: all .6s;
+    cursor: pointer;
+}
+.menu-item:first-child {
+    color: #FE6F61;
+}
+.menu-item:hover {
+    background-color: #F2F2F2;
+    transform: scale(1.01);
+}

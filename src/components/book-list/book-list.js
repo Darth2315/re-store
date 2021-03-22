@@ -1,24 +1,43 @@
 import React, {Component} from 'react';
 import BookListItem from '../book-list-item';
 import { connect } from 'react-redux';
+import { withBookstoreService } from '../hoc';
+import { booksLoaded } from '../../actions';
+import { bindActionCreators } from 'redux';
+import { compose } from '../../utils';
 
 import './book-list.css';
 
 class BookList extends Component {
+
+    componentDidMount() {
+        // get data from service
+        const { bookstoreService } = this.props;
+        const data = bookstoreService.getBooks();
+        console.log(data);
+
+        // dispatch actions to store
+        this.props.booksLoaded(data);
+    }
     
     render() {
         const { books } = this.props;
 
         return (
-            <ul>
-                {
-                    books.map(book => {
-                        return (
-                            <li key={book.id}><BookListItem book={book}/></li>
-                        )
-                    })
-                }
-            </ul>
+            <>
+                <div className="num-items">Показано 10 з 56</div>
+                <div className="item-list">
+                    {
+                        books.map(book => {
+                            return (
+                                <div key={book.id} className="item">
+                                    <BookListItem book={book}/>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+            </>
         )
     }
 }
@@ -29,4 +48,13 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(BookList);
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({booksLoaded}, dispatch);
+}
+
+// export default withBookstoreService()(connect(mapStateToProps, mapDispatchToProps)(BookList));
+// The above code with compose function
+export default compose(
+                withBookstoreService(),
+                connect(mapStateToProps, mapDispatchToProps)
+                )(BookList);
