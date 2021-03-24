@@ -1,13 +1,18 @@
 const initialState = {
-    books: [],
+    parfums: [],
     loading: true
 }
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case "BOOKS_LOADED":
+        case "PARFUMS_REQUESTED":
             return {
-                books: action.payload,
+                parfums: [],
+                loading: true
+            }
+        case "PARFUMS_LOADED":
+            return {
+                parfums: action.payload,
                 loading: false
             }
         default:

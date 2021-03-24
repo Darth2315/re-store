@@ -1,0 +1,13 @@
+.item-rating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    width: 96px;
+    font-size: 12px;
+}
+.item-rating a {
+    margin-left: 5px;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+}

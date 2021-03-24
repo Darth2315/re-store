@@ -2,15 +2,16 @@ import React from 'react';
 import logo from './logo.svg';
 import cart from './shopping-bag.svg';
 import search from './loupe.svg';
+import { Link } from 'react-router-dom';
 import './header.css';
 
 const Header = ({numItems, total}) => {
     return (
         <>
             <header className="header">
-                <div className="logo">
+                <Link to="/" className="logo">
                     <img src={logo} alt="logo"/>
-                </div>
+                </Link>
                 <div className="serch-block">
                     <input type="text" placeholder="Пошук серед 12000 ароматів"/>
                     <button className="btn-search-submit">
@@ -22,7 +23,10 @@ const Header = ({numItems, total}) => {
                     <div className="work-hours">пн-пт з 10 до 20, сб-нд з 11 до 16</div>
                 </div>
                 <div className="cart-block">
+                    <Link to="/cart">
                     <img src={cart} alt="shopping cart"/>
+                    </Link>
+                    
                     <span className="items-in-cart">5</span>
                     <span className="total">50 грн</span>
                 </div>

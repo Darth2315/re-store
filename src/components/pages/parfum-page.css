@@ -1,0 +1,109 @@
+.parfum-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.parfum-gallery {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100px;
+    margin-top: 20px;
+}
+.parfum-gallery img {
+    margin-bottom: 12px;
+    width: 80px;
+    height: 80px;
+}
+.parfum-main-photo {
+    height: 400px;
+    padding: 10px;
+}
+.parfum-main-photo img {
+    height: 100%;
+}
+.parfum-title {
+    font-size: 19px;
+    font-weight: 400;
+}
+.parfum-cost-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+.parfum-price {
+    font-size: 19px;
+    font-weight: 700;
+}
+.parfum-price-for-ml, .parfum-old-price, .parfum-discount, .parfum-delivery {
+    font-size: 12px;
+}
+.parfum-old-price {
+    text-decoration: line-through;
+}
+.parfum-discount {
+    color: #c3332e;
+    font-weight: 700;
+}
+.parfum-delivery-block {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.parfum-delivery {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+}
+.parfum-delivery-block img{
+    margin-right: 8px;
+}
+.parfum-add-to-bag {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 20px;
+}
+.btn-add-to-bag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 55px;
+    margin-right: 10px;
+    background-color: #333A40;
+    color: #ffffff;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.btn-add-to-bag img{
+    margin-right: 12px;
+}
+.parfum-in-stock {
+    font-size: 13px;
+    font-weight: 700;
+}
+.parfum-also-available {
+    margin-top: 25px;
+    font-size: 13px;
+}
+.parfum-also-block {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+.parfum-also-item {
+    display: flex;
+}
+.parfum-also-item-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 30px 0 10px;
+    font-size: 13px;
+}
+.parfum-also-item-cost {
+    font-weight: 700;
+}

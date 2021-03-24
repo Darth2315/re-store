@@ -19,19 +19,6 @@
     line-height: 17px;
     font-weight: 700;
 }
-.item-rating {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px;
-    width: 96px;
-    font-size: 12px;
-}
-.item-rating a {
-    margin-left: 5px;
-    text-decoration: underline;
-    text-decoration-style: dotted;
-}
 .btn-add-to-cart {
     margin-top: 20px;
     width: 110px;

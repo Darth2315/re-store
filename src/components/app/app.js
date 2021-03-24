@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { HomePage, CartPage } from '../pages';
+import { HomePage, CartPage, ParfumPage } from '../pages';
 import Header from '../header';
 import Menu from '../menu';
 import InfoBlock from '../info-block';
@@ -21,6 +21,7 @@ const App = () => {
                 <Switch>
                     <Route path='/' exact component={HomePage} />
                     <Route path='/cart' component={CartPage} />
+                    <Route path='/parfum-page' component={ParfumPage} />
                 </Switch>
             </div>
             <PreFooter />

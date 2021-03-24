@@ -1,4 +1,4 @@
-export default class BookstoreService {
+export default class ParfumstoreService {
 
     data = [
         {
@@ -93,7 +93,7 @@ export default class BookstoreService {
         }
     ];
 
-    getBooks() {
+    getParfums() {
       return new Promise((resolve) => {
           setTimeout(() => {
               resolve(this.data);

@@ -1,29 +1,29 @@
 import React, {Component} from 'react';
-import BookListItem from '../book-list-item';
+import ParfumListItem from '../parfum-list-item';
 import { connect } from 'react-redux';
-import { withBookstoreService } from '../hoc';
-import { booksLoaded } from '../../actions';
+import { withParfumstoreService } from '../hoc';
+import { parfumsLoaded, parfumsRequested } from '../../actions';
 import { bindActionCreators } from 'redux';
 import { compose } from '../../utils';
 import Spinner from '../spinner';
 
-import './book-list.css';
+import './parfum-list.css';
 
-class BookList extends Component {
+class ParfumList extends Component {
 
     componentDidMount() {
         // get data from service
-        const { bookstoreService, booksLoaded } = this.props;
-        
-        bookstoreService.getBooks()
+        const { parfumstoreService, parfumsLoaded, parfumsRequested } = this.props;
+        parfumsRequested();
+        parfumstoreService.getParfums()
         .then((data) => {
             // dispatch actions to store
-            booksLoaded(data);
+            parfumsLoaded(data);
         })
     }
     
     render() {
-        const { books, loading } = this.props;
+        const { parfums, loading } = this.props;
 
         if (loading) {
             return <Spinner/>
@@ -33,10 +33,10 @@ class BookList extends Component {
                 <div className="num-items">Показано 10 з 56</div>
                 <div className="item-list">
                     {
-                        books.map(book => {
+                        parfums.map(parfum => {
                             return (
-                                <div key={book.id} className="item">
-                                    <BookListItem book={book}/>
+                                <div key={parfum.id} className="item">
+                                    <ParfumListItem parfum={parfum}/>
                                 </div>
                             )
                         })
@@ -49,18 +49,18 @@ class BookList extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        books: state.books,
+        parfums: state.parfums,
         loading: state.loading
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({booksLoaded}, dispatch);
+    return bindActionCreators({parfumsLoaded, parfumsRequested}, dispatch);
 }
 
 // export default withBookstoreService()(connect(mapStateToProps, mapDispatchToProps)(BookList));
 // The above code with compose function
 export default compose(
-                withBookstoreService(),
+                withParfumstoreService(),
                 connect(mapStateToProps, mapDispatchToProps)
-                )(BookList);
+                )(ParfumList);
