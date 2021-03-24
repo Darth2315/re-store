@@ -10,7 +10,7 @@
 
 .container {
     width: 1140px;
-    /* background-color: #F2F2F2; */
+    min-height: 500px;
     margin: 0 auto;
     padding: 30px 0;
 }

@@ -17,7 +17,7 @@ const BookListItem = ({ book }) => {
                 <img src={star} alt="star-rating"/>
                 <img src={star} alt="star-rating"/>
                 <img src={star} alt="star-rating"/>
-                <a href="#">{numReview}</a>
+                <a href="/">{numReview}</a>
             </div>
             <div className="item-price">{price} грн</div>
             <button className="btn-add-to-cart">В корзину</button>

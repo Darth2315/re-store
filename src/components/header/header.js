@@ -18,7 +18,7 @@ const Header = ({numItems, total}) => {
                     </button>
                 </div>
                 <div className="phone-block">
-                    <div className="phone">(044) 599-21-44, (098) 151 31 05</div>
+                    <div className="phone">(044) 599-21-44</div>
                     <div className="work-hours">пн-пт з 10 до 20, сб-нд з 11 до 16</div>
                 </div>
                 <div className="cart-block">

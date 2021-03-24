@@ -5,6 +5,7 @@ import { withBookstoreService } from '../hoc';
 import { booksLoaded } from '../../actions';
 import { bindActionCreators } from 'redux';
 import { compose } from '../../utils';
+import Spinner from '../spinner';
 
 import './book-list.css';
 
@@ -12,17 +13,21 @@ class BookList extends Component {
 
     componentDidMount() {
         // get data from service
-        const { bookstoreService } = this.props;
-        const data = bookstoreService.getBooks();
-        console.log(data);
-
-        // dispatch actions to store
-        this.props.booksLoaded(data);
+        const { bookstoreService, booksLoaded } = this.props;
+        
+        bookstoreService.getBooks()
+        .then((data) => {
+            // dispatch actions to store
+            booksLoaded(data);
+        })
     }
     
     render() {
-        const { books } = this.props;
+        const { books, loading } = this.props;
 
+        if (loading) {
+            return <Spinner/>
+        }
         return (
             <>
                 <div className="num-items">Показано 10 з 56</div>
@@ -44,7 +49,8 @@ class BookList extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        books: state.books
+        books: state.books,
+        loading: state.loading
     }
 }
 

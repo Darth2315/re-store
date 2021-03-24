@@ -53,5 +53,10 @@
 }
 .phone-block {
     font-size: 14px;
-    /* font-weight: 700; */
+}
+.phone {
+    font-weight: 800;
+}
+.work-hours {
+    font-size: 12px;
 }
