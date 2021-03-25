@@ -94,9 +94,10 @@ export default class ParfumstoreService {
     ];
 
     getParfums() {
-      return new Promise((resolve) => {
+      return new Promise((resolve, reject) => {
           setTimeout(() => {
               resolve(this.data);
+            // reject (new Error('Fuckkk'));
           }, 500);
       });
     }

@@ -2,32 +2,30 @@ import React, {Component} from 'react';
 import ParfumListItem from '../parfum-list-item';
 import { connect } from 'react-redux';
 import { withParfumstoreService } from '../hoc';
-import { parfumsLoaded, parfumsRequested } from '../../actions';
-import { bindActionCreators } from 'redux';
+import { fetchParfums } from '../../actions';
 import { compose } from '../../utils';
 import Spinner from '../spinner';
+import ErrorIndicator from '../error-indicator';
 
 import './parfum-list.css';
 
 class ParfumList extends Component {
 
     componentDidMount() {
-        // get data from service
-        const { parfumstoreService, parfumsLoaded, parfumsRequested } = this.props;
-        parfumsRequested();
-        parfumstoreService.getParfums()
-        .then((data) => {
-            // dispatch actions to store
-            parfumsLoaded(data);
-        })
+        this.props.fetchParfums();
     }
     
     render() {
-        const { parfums, loading } = this.props;
+        const { parfums, loading, error } = this.props;
 
         if (loading) {
             return <Spinner/>
         }
+
+        if (error) {
+            return <ErrorIndicator />
+        }
+
         return (
             <>
                 <div className="num-items">Показано 10 з 56</div>
@@ -50,12 +48,18 @@ class ParfumList extends Component {
 const mapStateToProps = (state) => {
     return {
         parfums: state.parfums,
-        loading: state.loading
+        loading: state.loading,
+        error: state.error
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({parfumsLoaded, parfumsRequested}, dispatch);
+const mapDispatchToProps = (dispatch, ownProps) => {
+
+    const { parfumstoreService } = ownProps;
+
+    return {
+        fetchParfums: fetchParfums(parfumstoreService, dispatch)
+    }
 }
 
 // export default withBookstoreService()(connect(mapStateToProps, mapDispatchToProps)(BookList));

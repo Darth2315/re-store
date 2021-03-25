@@ -1,7 +1,7 @@
 .parfum-wrapper {
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: space-between;
+    align-items: center;
 }
 .parfum-gallery {
     display: flex;
@@ -21,6 +21,9 @@
 }
 .parfum-main-photo img {
     height: 100%;
+}
+.parfum-details {
+    padding: 0 20px;
 }
 .parfum-title {
     font-size: 19px;
