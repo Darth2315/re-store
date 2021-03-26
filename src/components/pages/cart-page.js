@@ -13,7 +13,9 @@ const Cart = ({ items, total, deliveryCost, onIncrease, onDecrease, onDelete }) 
   
         return (
             <div className="cart-item" key={id}>
-                <img src={img} alt={name}/>
+                <div className="cart-item-image">
+                    <img src={img} alt={name}/>
+                </div>
                 <div className="cart-item-title">{name}</div>
                 <div className="cart-item-count">{count}</div>
                 <div className="cart-control-block">

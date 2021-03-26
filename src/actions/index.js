@@ -18,6 +18,13 @@ const parfumsError = (error) => {
     }
 }
 
+const parfumAddedToCart = (parfumId) => {
+    return {
+        type: 'PARFUM_ADDED_TO_CART',
+        payload: parfumId
+    }
+}
+
 const fetchParfums = (parfumstoreService, dispatch) => () => {
     dispatch(parfumsRequested());
     parfumstoreService.getParfums()
@@ -26,5 +33,6 @@ const fetchParfums = (parfumstoreService, dispatch) => () => {
 }
 
 export {
-    fetchParfums
+    fetchParfums,
+    parfumAddedToCart
 }
