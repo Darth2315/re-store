@@ -9,7 +9,7 @@ import ErrorIndicator from '../error-indicator';
 
 import './parfum-list.css';
 
-class ParfumList extends Component {
+class ParfumListContainer extends Component {
 
     componentDidMount() {
         this.props.fetchParfums();
@@ -27,22 +27,28 @@ class ParfumList extends Component {
         }
 
         return (
-            <>
-                <div className="num-items">Показано 10 з 56</div>
-                <div className="item-list">
-                    {
-                        parfums.map(parfum => {
-                            return (
-                                <div key={parfum.id} className="item">
-                                    <ParfumListItem parfum={parfum}/>
-                                </div>
-                            )
-                        })
-                    }
-                </div>
-            </>
+            <ParfumList parfums={ parfums }/>
         )
     }
+}
+
+const ParfumList = ({parfums}) => {
+    return (
+        <>
+            <div className="num-items">Показано 10 з 56</div>
+            <div className="item-list">
+                {
+                    parfums.map(parfum => {
+                        return (
+                            <div key={parfum.id} className="item">
+                                <ParfumListItem parfum={parfum}/>
+                            </div>
+                        )
+                    })
+                }
+            </div>
+        </>
+    )
 }
 
 const mapStateToProps = (state) => {
@@ -67,4 +73,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 export default compose(
                 withParfumstoreService(),
                 connect(mapStateToProps, mapDispatchToProps)
-                )(ParfumList);
+                )(ParfumListContainer);
