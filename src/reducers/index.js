@@ -23,25 +23,34 @@ const updateCartItems = (cartItems, item, idx) => {
     ]
 }
 
-const updateCartItem = (parfum, item) => {
+const updateCartItem = (parfum, item = {}) => {
 
     const {id, brand, title, concentration, vol, img, price} = parfum;
+    const { count = 0, total = 0 } = item;
 
-    if (item) {
-        return {
-            ...item,
-            count: item.count + 1,
-            total: item.total + parfum.price
-        }
-    } else {
-        return {
-            id: id,
-            name: `${brand} ${title} ${concentration} ${vol}`,
-            img: img,
-            count: 1,
-            total: price
-        }
+    return {
+        id,
+        name: `${brand} ${title} ${concentration} ${vol}`,
+        img,
+        count: count + 1,
+        total: total + price
     }
+
+    // if (item) {
+    //     return {
+    //         ...item,
+    //         count: item.count + 1,
+    //         total: item.total + parfum.price
+    //     }
+    // } else {
+    //     return {
+    //         id: id,
+    //         name: `${brand} ${title} ${concentration} ${vol}`,
+    //         img: img,
+    //         count: 1,
+    //         total: price
+    //     }
+    // }
 }
 
 const reducer = (state = initialState, action) => {
