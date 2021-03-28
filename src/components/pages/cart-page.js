@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { parfumAddedToCart, pafrumRemovedFromCart, allPafrumRemovedFromCart } from '../../actions';
 
 import './cart-page.css';
 import del from './delete.svg';
@@ -59,12 +60,10 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        onIncrease: (id) => console.log(`increase ${id}`),
-        onDecrease: (id) => console.log('decrease'),
-        onDelete: (id) => console.log('delete')
-    }
+const mapDispatchToProps = {
+    onIncrease: parfumAddedToCart,
+    onDecrease: pafrumRemovedFromCart,
+    onDelete: allPafrumRemovedFromCart
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);

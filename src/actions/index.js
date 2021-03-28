@@ -25,6 +25,20 @@ const parfumAddedToCart = (parfumId) => {
     }
 }
 
+const pafrumRemovedFromCart = (parfumId) => {
+    return {
+        type: 'PARFUM_REMOVED_FROM_CART',
+        payload: parfumId
+    }
+}
+
+const allPafrumRemovedFromCart = (parfumId) => {
+    return {
+        type: 'ALL_PARFUM_REMOVED_FROM_CART',
+        payload: parfumId
+    }
+}
+
 const fetchParfums = (parfumstoreService, dispatch) => () => {
     dispatch(parfumsRequested());
     parfumstoreService.getParfums()
@@ -34,5 +48,7 @@ const fetchParfums = (parfumstoreService, dispatch) => () => {
 
 export {
     fetchParfums,
-    parfumAddedToCart
+    parfumAddedToCart,
+    pafrumRemovedFromCart,
+    allPafrumRemovedFromCart
 }

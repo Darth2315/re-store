@@ -8,6 +8,13 @@ const initialState = {
 }
 
 const updateCartItems = (cartItems, item, idx) => {
+
+    if (item.count === 0) {
+        return [
+            ...cartItems.slice(0, idx),
+            ...cartItems.slice(idx + 1)
+        ]
+    }
     
     if (idx === -1) {
         return [
@@ -23,7 +30,7 @@ const updateCartItems = (cartItems, item, idx) => {
     ]
 }
 
-const updateCartItem = (parfum, item = {}) => {
+const updateCartItem = (parfum, item = {}, quantity) => {
 
     const {id, brand, title, concentration, vol, img, price} = parfum;
     const { count = 0, total = 0 } = item;
@@ -32,8 +39,8 @@ const updateCartItem = (parfum, item = {}) => {
         id,
         name: `${brand} ${title} ${concentration} ${vol}`,
         img,
-        count: count + 1,
-        total: total + price
+        count: count + quantity,
+        total: total + quantity * price
     }
 
     // if (item) {
@@ -51,6 +58,21 @@ const updateCartItem = (parfum, item = {}) => {
     //         total: price
     //     }
     // }
+}
+
+const updateOrder = (state, parfumId, quantity) => {
+    const { parfums, cartItems } = state;
+
+    const parfum = parfums.find(parfum => parfum.id === parfumId);
+    const itemIndex = cartItems.findIndex(({id}) => id === parfum.id);
+    const item = cartItems[itemIndex];
+
+    const newItem = updateCartItem(parfum, item, quantity);
+
+    return {
+        ...state,
+        cartItems: updateCartItems(state.cartItems, newItem, itemIndex)
+    }
 }
 
 const reducer = (state = initialState, action) => {
@@ -78,17 +100,15 @@ const reducer = (state = initialState, action) => {
                 error: action.payload
             }
         case "PARFUM_ADDED_TO_CART":
-            const parfumId = action.payload;
-            const parfum = state.parfums.find(parfum => parfum.id === parfumId);
-            const itemIndex = state.cartItems.findIndex(({id}) => id === parfum.id);
-            const item = state.cartItems[itemIndex];
+            return updateOrder(state, action.payload, 1)
 
-            const newItem = updateCartItem(parfum, item);
+        case "PARFUM_REMOVED_FROM_CART":
+            return updateOrder(state, action.payload, -1)
 
-            return {
-                ...state,
-                cartItems: updateCartItems(state.cartItems, newItem, itemIndex)
-            }
+        case "ALL_PARFUM_REMOVED_FROM_CART":
+            const item = state.cartItems.find(({id}) => id === action.payload);
+            return updateOrder(state, action.payload, -item.count)
+
         default:
             return state;
     }
