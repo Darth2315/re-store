@@ -9,9 +9,17 @@ import minus from './minus.svg';
 
 const Cart = ({ items, total, deliveryCost, onIncrease, onDecrease, onDelete }) => {
 
+    if (items.length === 0) {
+        return <div className="cart-empty-title">Ваш кошик поки що порожній...</div>
+    }
+
+    if (total > 6000) {
+        deliveryCost = 0;
+    }
+
     const RenderRow = (item) => {
         const {id, name, count, total, img } = item;
-  
+
         return (
             <div className="cart-item" key={id}>
                 <div className="cart-item-image">
@@ -48,14 +56,26 @@ const Cart = ({ items, total, deliveryCost, onIncrease, onDecrease, onDelete }) 
                 <div className="cart-total-title">Підсумок</div> 
                 <div className="cart-total-sum cart-sum">{total + deliveryCost} грн</div>
             </div>
+
+            <div className="cart-checkout-block">
+                <div className="checkout-block-text">
+                    Додайте <b>промо-коди</b> або <b>подарункові ваучери</b>
+                    <br/>
+                    під час оформлення замовлення
+                </div>
+                <button>Оформити замовлення</button>
+            </div>
         </div>
     )
 }
 
 const mapStateToProps = (state) => {
+
+    const orderTotal = state.cartItems.reduce((a, b) => a + b.total, 0);
+
     return {
         items: state.cartItems,
-        total: state.orderTotal,
+        total: orderTotal,
         deliveryCost: state.deliveryCost
     }
 }

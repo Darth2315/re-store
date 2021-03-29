@@ -3,9 +3,10 @@ import logo from './logo.svg';
 import cart from './shopping-bag.svg';
 import search from './loupe.svg';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import './header.css';
 
-const Header = ({numItems, total}) => {
+const Header = ({numItems}) => {
     return (
         <>
             <header className="header">
@@ -27,12 +28,20 @@ const Header = ({numItems, total}) => {
                     <img src={cart} alt="shopping cart"/>
                     </Link>
                     
-                    <span className="items-in-cart">5</span>
-                    <span className="total">50 грн</span>
+                    <span className="items-in-cart">{numItems}</span>
                 </div>
             </header>
         </>
     )
 }
 
-export default Header;
+const mapStateToProps = ({cartItems}) => {
+    
+    const countTotal = cartItems.reduce((prev, cur) => prev + cur.count, 0);
+
+    return {
+        numItems: countTotal
+    }
+}
+
+export default connect(mapStateToProps)(Header);

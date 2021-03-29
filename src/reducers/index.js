@@ -3,7 +3,6 @@ const initialState = {
     loading: true,
     error: null,
     cartItems: [],
-    orderTotal: 3000,
     deliveryCost: 50
 }
 
@@ -22,7 +21,7 @@ const updateCartItems = (cartItems, item, idx) => {
             item
         ]
     }
-
+    
     return [
         ...cartItems.slice(0, idx),
         item,
@@ -68,7 +67,6 @@ const updateOrder = (state, parfumId, quantity) => {
     const item = cartItems[itemIndex];
 
     const newItem = updateCartItem(parfum, item, quantity);
-
     return {
         ...state,
         cartItems: updateCartItems(state.cartItems, newItem, itemIndex)
