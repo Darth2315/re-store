@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import RatingStars from '../rating-stars';
+import ProductPageShare from '../product-page-share';
+
 import './parfum-page.css';
+
 import del from './fast.svg';
 import bag from './shopping-bag.svg';
 
@@ -60,6 +63,7 @@ const ParfumPage = () => {
                 </div>
                 </div>
             </div>
+            <ProductPageShare />
         </>
     )
 }

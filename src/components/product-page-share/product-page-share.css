@@ -1,0 +1,40 @@
+.product-page-share-block {
+    display: flex;
+    justify-content: center;
+    height: 52px;
+    margin-top: 40px;
+    background-color: #F2F2F2;
+    padding: 8px;
+}
+.product-page-share-add{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.add-to-wish-icon, .productpage-share-icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 5px;
+}
+.add-to-wish-icon img {
+    height: 100%;
+}
+.product-page-share-block span {
+    font-size: 13px;
+    font-weight: 700;
+}
+.productpage-share-icons-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 150px;
+    margin-left: 20px;
+}
+.productpage-share-icon{
+    transition: all .6s;
+}
+.productpage-share-icon:hover{
+    transform: scale(1.1);
+}
