@@ -1,9 +1,9 @@
 import React from 'react';
-import BookList from '../parfum-list';
+import ParfumList from '../parfum-list';
 
 const HomePage = () => {
     return (
-        <BookList />
+        <ParfumList />
     )
 }
 

@@ -35,7 +35,7 @@ class ParfumListContainer extends Component {
 const ParfumList = ({ parfums, onAddedToCart }) => {
     return (
         <>
-            <div className="num-items">Показано 10 з 56</div>
+            {/* <div className="num-items">Показано 10 з 56</div> */}
             <div className="item-list">
                 {
                     parfums.map(parfum => {
