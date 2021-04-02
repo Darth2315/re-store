@@ -1,0 +1,39 @@
+.product-description {
+    margin-top: 20px;
+    padding: 30px 50px;
+    width: 100%;
+    min-height: 500px;
+}
+.product-description__title {
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.product-description__text, .olfactory-block, .product-info {
+    font-size: 15px;
+}
+.product-description__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 30px;
+}
+.product-description__left {
+    width: 600px;
+}
+.product-description__right {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.olfactory-block, .product-info {
+    margin-top: 20px;
+}
+.product-description__line {
+    width: 350px;
+    height: 1px;
+    background-color: rgb(213, 213, 213);
+    margin-top: 20px;
+}

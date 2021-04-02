@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import RatingStars from '../rating-stars';
 import ProductPageShare from '../product-page-share';
+import ProductDescription from '../product-description';
 
 import './parfum-page.css';
 
@@ -64,6 +65,7 @@ const ParfumPage = () => {
                 </div>
             </div>
             <ProductPageShare />
+            <ProductDescription />
         </>
     )
 }

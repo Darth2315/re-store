@@ -3,10 +3,10 @@
     justify-content: center;
     height: 52px;
     margin-top: 40px;
-    background-color: #F2F2F2;
     padding: 8px;
+    background-color: #F2F2F2;
 }
-.product-page-share-add{
+.product-page-share-add {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -18,7 +18,8 @@
     height: 18px;
     margin-right: 5px;
 }
-.add-to-wish-icon img {
+.add-to-wish-icon img,
+.productpage-share-icon img {
     height: 100%;
 }
 .product-page-share-block span {
@@ -32,9 +33,9 @@
     width: 150px;
     margin-left: 20px;
 }
-.productpage-share-icon{
+.productpage-share-icon {
     transition: all .6s;
 }
-.productpage-share-icon:hover{
+.productpage-share-icon:hover {
     transform: scale(1.1);
 }
