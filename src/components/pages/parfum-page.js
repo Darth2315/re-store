@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import RatingStars from '../rating-stars';
 import ProductPageShare from '../product-page-share';
 import ProductDescription from '../product-description';
+import ReviewsBlock from '../reviews-block';
 import ProductAlternative from '../product-alternative';
 
 import './parfum-page.css';
@@ -68,6 +69,7 @@ const ParfumPage = () => {
             <ProductPageShare />
             <ProductDescription />
             <ProductAlternative />
+            <ReviewsBlock />
         </>
     )
 }
