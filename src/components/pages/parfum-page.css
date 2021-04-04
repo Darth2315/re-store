@@ -74,11 +74,16 @@
     width: 200px;
     height: 55px;
     margin-right: 10px;
+    border: none;
     background-color: #333A40;
     color: #ffffff;
     font-size: 14px;
     text-transform: uppercase;
     font-weight: 700;
+    cursor: pointer;
+}
+.btn-add-to-bag:focus {
+    outline-style: none;
 }
 .btn-add-to-bag img{
     margin-right: 12px;

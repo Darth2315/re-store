@@ -6,14 +6,15 @@ import star from './star.svg';
 const ReviewsBlock = () => {
     return (
         <div className="reviews">
+            <div className="reviews__big-divider"></div>
             <div className="reviews__header">
-                <div className="reviews__header_title">Відгуки покупців</div>
+                <div className="reviews__header_title">Відгуки покупців <span>(24)</span></div>
                 <button className="reviews__header_btn">Написати відгук</button>
             </div>
             <div className="reviews__devider"></div>
 
             <div className="reviews__rating_title">Рейтинг</div>
-            <div className="reviews__rating_subtitle">Оберіть строку щоб відфільтрувати відгуки</div>
+            <div className="reviews__rating_subtitle">Оберіть строку щоб фільтрувати відгуки</div>
 
             <div className="rating__block">
                 <div className="rating__block_item">
@@ -52,27 +53,27 @@ const ReviewsBlock = () => {
 
             <div className="review_item">
                 <div className="review__item_top">
-                <div className="review__item_stars">
-                    <img src={star} alt="star-rating"/>
-                    <img src={star} alt="star-rating"/>
-                    <img src={star} alt="star-rating"/>
-                    <img src={star} alt="star-rating"/>
-                    <img src={star} alt="star-rating"/>
-                </div>
-                <div className="review__item_author">Alex</div>
-                <div className="review__item_date">8 днів тому</div>
+                    <div className="review__item_stars">
+                        <img src={star} alt="star-rating"/>
+                        <img src={star} alt="star-rating"/>
+                        <img src={star} alt="star-rating"/>
+                        <img src={star} alt="star-rating"/>
+                        <img src={star} alt="star-rating"/>
+                    </div>
+                    <div className="review__item_author">Alex</div>
+                    <div className="review__item_date"><span>&#183;</span> 8 днів тому</div>
                 </div>
                 <div className="review__item_title">Чудовий аромат</div>
                 <div className="review__item_text">
                     Приехал пробник. Сначала аромат показался резковатым, колким, но не отталкивающим (наверное потому что я привык к свежакам). Но распробовав парфюм понимаю, что он великолепен. Хочу полноценный флакон ))
                 </div>
                 <div className="review__item_recomends">
-                    <span>Так</span>, я рекомендую цей продукт.
+                &#10004;<span>Так</span>, я рекомендую цей продукт.
                 </div>
                 <div className="review__item_helpfull">
                     <span>Цей відгук корисний?</span>
-                    <div className="review__item_yes">Так <span>1</span></div>
-                    <div className="review__item_no">Так <span>0</span></div>
+                    <div className="review__item_yes">Так &#183;<span id="yes">1</span></div>
+                    <div className="review__item_no">Ні &#183;<span id="no">0</span></div>
                 </div>
                 <div className="reviews__devider"></div>
             </div>
